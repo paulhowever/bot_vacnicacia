@@ -6,7 +6,7 @@ bot = telebot.TeleBot('6275945152:AAGZiANcfQXuxLEiNGN9Co8ZMcWgQ-O8RbU')
 @bot.message_handler(commands=['start'])
 def website3(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=3)
-    actual_vaccines = types.KeyboardButton('Вакцинация этого месяца')
+    actual_vaccines = types.KeyboardButton('Это важно знать!')
     calendar = types.KeyboardButton('Календарь вакцин')
     char_disease = types.KeyboardButton('Характеристика заболеваний')
     help = types.KeyboardButton('Проблемы с ботом?')
@@ -59,37 +59,13 @@ def website4(message):
         markup.add(start)
         bot.send_message(message.chat.id, 'Нажмите на start', reply_markup=markup)
     elif message.text == 'Тех. Поддержка':
-        bot.send_message(message.chat.id, 'Напишите в тех. поддержку ----> @variasd')
+        bot.send_message(message.chat.id, 'Напишите в тех. поддержку ----> @variusly123')
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
         start = types.KeyboardButton('/start')
         markup.add(start)
         bot.send_message(message.chat.id, 'Нажмите на start', reply_markup=markup)
-    elif message.text == 'Вакцинация этого месяца':
-        month = time.asctime()[4:7]
-        if month == 'Jan':
-            bot.send_message(message.chat.id, 'Jan')
-        elif month == 'Feb':
-            bot.send_message(message.chat.id, 'Feb')
-        elif month == 'Mar':
-            bot.send_message(message.chat.id, 'Mar')
-        elif month == 'Apr':
-            bot.send_message(message.chat.id, '')
-        elif month == 'May':
-            bot.send_message(message.chat.id, '')
-        elif month == 'Jun':
-            bot.send_message(message.chat.id, '')
-        elif month == 'Jul':
-            bot.send_message(message.chat.id, '')
-        elif month == 'Aug':
-            bot.send_message(message.chat.id, '')
-        elif month == 'Sep':
-            bot.send_message(message.chat.id, '')
-        elif month == 'Oct':
-            bot.send_message(message.chat.id, '')
-        elif month == 'Nov':
-            bot.send_message(message.chat.id, '')
-        elif month == 'Dec':
-            bot.send_message(message.chat.id, '')
+    elif message.text == 'Это важно знать!':
+        bot.send_message(message.chat.id, '🤓Ситуация с корью, коронавирусом в России в 2023 году остается напряженной. Сохраняется динамика увеличения количества случаев заболевания в разных регионах. Вспышка кори в России связана с распространившимся движении антиваксеров и формировании широкой не иммунизированной прослойки населения. ВОЗ уже называла отказ от прививок глобальной угрозой человечества, и сейчас мы можем видеть эту угрозу своими глазами.')
     elif message.text == 'Туберкулез':
         bot.send_message(message.chat.id, '''Туберкулез: 
   Что за заболевание?🧐
@@ -264,9 +240,23 @@ def website4(message):
 Данные вакцины предназначены для иммунизации детей от 2х лет и взрослых по схеме однократного введения одной дозы вакцины с последующей ревакцинацией через 2 – 3 года. Источник: 
 	❗Противопоказания:
 индивидуальная непереносимость компонентов вакцины, тяжелые системные реакции на предыдущую вакцинацию, острые инфекционные заболевания и период обострения хронических заболеваний''')
+    else:
+        bot.send_message(message.chat.id, 'Я не понял вас😢')
+
+@bot.message_handler(content_types=['photo'])
+def website(message):
+    bot.send_message(message.chat.id, 'Крутое фото!')
+
+@bot.message_handler(content_types=['sticker'])
+def website(message):
+    bot.send_message(message.chat.id, 'Крутой стикер!')
+
+@bot.message_handler(content_types=['video'])
+def website(message):
+    bot.send_message(message.chat.id, 'Крутое видео!')
+
 
 month = time.asctime()[4:7]
 
-#ПРИКОЛЫ (ОТВЕТ НА ТЕКСТ)
 
 bot.polling(none_stop=True)
